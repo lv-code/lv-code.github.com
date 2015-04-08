@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>android生命周期学习和测试 | 爱编程</title>
+  <title>第 3 页 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="记录工作和生活点滴！">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="android生命周期学习和测试"/>
+  
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -55,7 +55,66 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-11-28T07:11:44.000Z"><a href="/2014/11/28/android-application-or-activity-context/">2014-11-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/11/28/android-application-or-activity-context/">android-application-or-activity-context</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="android中context分析">android中context分析</h3><ol>
+<li><ul>
+<li>Application context和Activity context的区别：*</li>
+</ul>
+</li>
+</ol>
+<p>对一个Application来说，Activity可以销毁几次，那么属于Activity的context就会销毁多次。</p>
+<ol>
+<li><em>在使用context的时候，小心内存泄露，防止内存泄露，注意一下几个方面：</em></li>
+</ol>
+<p><strong>不要让生命周期长的对象引用activity context，即保证引用activity的对象要与activity本身生命周期是一样的</strong></p>
+<p><strong> 对于生命周期长的对象，可以使用application context </strong></p>
+<p><strong> 避免非静态的内部类，尽量使用静态类，避免生命周期问题，注意内部类对外部对象引用导致的生命周期变化 </strong></p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
   
     <div class="gallery">
   <div class="photoset">
@@ -76,7 +135,7 @@
       
       
   
-    <h1 class="title">android生命周期学习和测试</h1>
+    <h1 class="title"><a href="/2014/11/21/android-life-cycle-test/">android生命周期学习和测试</a></h1>
   
 
     </header>
@@ -90,43 +149,7 @@
     <footer>
     
       
-        <div style="padding:16px 0 16 0;">
-        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
-        </div>
         
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/11/28/android-application-or-activity-context/">android-application-or-activity-context</a>
-          </div>
-        
-        
-
-        
-          <div class="copyright">
-            
-              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
-            
-            
-              <span class="from-link">
-                <em>本文链接地址:</em>
-                <a href="/2014/11/21/android-life-cycle-test/">
-                  http://lv-code.github.io/2014/11/21/android-life-cycle-test/
-                </a>
-              </span>
-            
-          </div>
-        
-        
-  
-  <div class="categories">
-    <a href="/categories/android/">android</a>
-  </div>
-
-        
-  
-  <div class="tags">
-    <a href="/tags/android-生命周期/">android 生命周期</a>
-  </div>
-
         
       
       <div class="clearfix"></div>
@@ -135,7 +158,23 @@
 </article>
 
 
-</div></div>
+
+
+
+<ul class="page-direction" id="page-direction">
+    <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
+    <li><a class="page-next icon-chevron-sign-right" href="javascript:;" title="下一页"></a></li>
+</ul>
+
+    <nav id="page-list" class="page-list"><a class="extend prev" rel="prev" href="/page/2/">Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span></nav>
+
+<nav id="pagination">
+  
+    <a href="/page/2/" class="alignleft prev">上一页</a>
+  
+  
+  <div class="clearfix"></div>
+</nav></div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
   <form action="//google.com/search" method="get" accept-charset="utf-8">

@@ -73,6 +73,104 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2014-12-24T01:40:31.000Z"><a href="/2014/12/24/android-supporting-multiple-screens/">2014-12-24</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/24/android-supporting-multiple-screens/">android supporting multiple screens 多分辨率适配及碎片化问题解决方案总结</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Android设计之初就考虑到了UI在多平台的适配，它本身提供了一套完善的适配机制，随着版本的发展适配也越来越精确，UI适配主要受平台两个因素的影响：屏幕尺寸（屏幕的像素宽度及像素高度）和屏幕密度，针对不同的应用场景采用的适配方案也不一样</p>
+      
+    </div>
+    
+    <footer>
+    
+      
+        
+          <div class="alignleft">
+            <a href="/2014/12/24/android-supporting-multiple-screens/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-12-22T08:27:46.000Z"><a href="/2014/12/22/android-XMPP-openfire-smack/">2014-12-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/22/android-XMPP-openfire-smack/">android XMPP openfire smack笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>openfire对XMPP的实现还是比较完整的，做1万以内的并发IM是比较好的。</p>
+      
+    </div>
+    
+    <footer>
+    
+      
+        
+          <div class="alignleft">
+            <a href="/2014/12/22/android-XMPP-openfire-smack/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2014-12-15T06:25:14.000Z"><a href="/2014/12/15/redis-learn-note/">2014-12-15</a></time>
       
       
@@ -448,122 +546,20 @@
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-11-28T07:11:44.000Z"><a href="/2014/11/28/android-application-or-activity-context/">2014-11-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/11/28/android-application-or-activity-context/">android-application-or-activity-context</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="android中context分析">android中context分析</h3><ol>
-<li><ul>
-<li>Application context和Activity context的区别：*</li>
-</ul>
-</li>
-</ol>
-<p>对一个Application来说，Activity可以销毁几次，那么属于Activity的context就会销毁多次。</p>
-<ol>
-<li><em>在使用context的时候，小心内存泄露，防止内存泄露，注意一下几个方面：</em></li>
-</ol>
-<p><strong>不要让生命周期长的对象引用activity context，即保证引用activity的对象要与activity本身生命周期是一样的</strong></p>
-<p><strong> 对于生命周期长的对象，可以使用application context </strong></p>
-<p><strong> 避免非静态的内部类，尽量使用静态类，避免生命周期问题，注意内部类对外部对象引用导致的生命周期变化 </strong></p>
-
-      
-    </div>
-    
-    <footer>
-    
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-11-21T07:50:32.000Z"><a href="/2014/11/21/android-life-cycle-test/">2014-11-21</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/11/21/android-life-cycle-test/">android生命周期学习和测试</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="android生命周期学习和测试"><strong>android生命周期学习和测试</strong></h1><p>首先看一下Android api中所提供的Activity生命周期图(不明白的，可以看完整篇文章，在回头看一下这个图，你会明白的):</p>
-
-      
-    </div>
-    
-    <footer>
-    
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <ul class="page-direction" id="page-direction">
     <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
     <li><a class="page-next icon-chevron-sign-right" href="javascript:;" title="下一页"></a></li>
 </ul>
 
-    <nav id="page-list" class="page-list"><a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span></nav>
+    <nav id="page-list" class="page-list"><a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next</a></nav>
 
 <nav id="pagination">
   
     <a href="/" class="alignleft prev">上一页</a>
   
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -593,7 +589,9 @@
   
     <li><a href="/tags/apache/">apache</a><small>1</small></li>
   
-    <li><a href="/tags/hexo/">hexo</a><small>2</small></li>
+    <li><a href="/tags/hexo/">hexo</a><small>3</small></li>
+  
+    <li><a href="/tags/健身/">健身</a><small>1</small></li>
   
     <li><a href="/tags/反射机制/">反射机制</a><small>1</small></li>
   
@@ -612,6 +610,14 @@
     
       <li>
         <a href="/2015/04/08/hello-world/">Hello World</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/08/hexo-blog-coding-net/">在coding.net的webIDE配置hexo</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/08/jianfulun/">健腹轮的注意事项</a>
       </li>
     
       <li>
@@ -648,14 +654,6 @@
     
       <li>
         <a href="/2014/12/22/android-XMPP-openfire-smack/">android XMPP openfire smack笔记</a>
-      </li>
-    
-      <li>
-        <a href="/2014/12/15/redis-learn-note/">redis-learn-note redis常用命令和基础知识学习</a>
-      </li>
-    
-      <li>
-        <a href="/2014/12/10/android-OS-framework/">android OS framework 从多方面理解 Android 体系结构</a>
       </li>
     
   </ul>
