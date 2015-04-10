@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="zh-cn">
+  
+  <title>redis-learn-note redis常用命令和基础知识学习笔记 | 爱编程</title>
+  <meta name="author" content="gangzi">
+  
+  <meta name="description" content="记录工作和生活点滴！">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="redis-learn-note redis常用命令和基础知识学习笔记"/>
+  <meta property="og:site_name" content="爱编程"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="爱编程" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+  
+
+</head>
+
+
+<body>
+  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">爱编程</a></h1>
+  <h2><a href="/">记录工作和生活点滴</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/categories/essay/">随感</a></li>
+    
+      <li><a href="/categories/tech/">技术</a></li>
+    
+      <li><a href="/categories/php/">php</a></li>
+    
+      <li><a href="/categories/life/">生活</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-12-14T16:00:00.000Z"><a href="/2014/12/15-redis-learn-note.html">2014-12-15</a></time>
+      
+      
+  
+    <h1 class="title">redis-learn-note redis常用命令和基础知识学习笔记</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Redis is an open source BSD licensed, advanced key-value cache and store.<br>It is ofen referred to as a data structrue server since keys can contain strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.<br>—come form “redis.io”</p>
+<a id="more"></a>
+<p>使用场景</p>
+<p>社交巨头新浪微博、传媒巨头Viacom及图片分享领域佼佼者Pinterest带来的Redis</p>
+<p><a href="http://www.xdata.me/?p=262" target="_blank" rel="external">计数场景的优化</a><br>社交网络信息爆发，如何衡量你在社交舆论上的影响力？计数！</p>
+<p>计数是应用最方便、简单实现的数据挖掘应用，拿Facebook举例，你的Feed被评论多少次，转发多少次，赞多少次，被浏览多少次，你有多少个好友等等。可以说计数得多少的价值可能超过你本身或者你发布的内容本身。</p>
+<h3 id="redis常用命令">redis常用命令</h3><p>try.redis.io</p>
+<p>hset user:1000 visits 10<br>EXPIREAT key timestamp</p>
+<p>连接操作相关的命令</p>
+<p>quit：关闭连接（connection）<br>auth：简单密码认证</p>
+<p>持久化</p>
+<p>save：将数据同步保存到磁盘<br>bgsave：将数据异步保存到磁盘<br>lastsave：返回上次成功将数据保存到磁盘的Unix时戳<br>shundown：将数据同步保存到磁盘，然后关闭服务</p>
+<p>远程服务控制</p>
+<p>info：提供服务器的信息和统计<br>monitor：实时转储收到的请求<br>slaveof：改变复制策略设置<br>config：在运行时配置Redis服务器</p>
+<p>对value操作的命令</p>
+<p>exists(key)：确认一个key是否存在<br>del(key)：删除一个key<br>type(key)：返回值的类型<br>keys(pattern)：返回满足给定pattern的所有key<br>randomkey：随机返回key空间的一个<br>keyrename(oldname, newname)：重命名key<br>dbsize：返回当前数据库中key的数目<br>expire：设定一个key的活动时间（s）<br>ttl：获得一个key的活动时间<br>select(index)：按索引查询<br>move(key, dbindex)：移动当前数据库中的key到dbindex数据库<br>flushdb：删除当前选择数据库中的所有key<br>flushall：删除所有数据库中的所有key</p>
+<p>对String操作的命令</p>
+<p>set(key, value)：给数据库中名称为key的string赋予值value<br>get(key)：返回数据库中名称为key的string的value<br>getset(key, value)：给名称为key的string赋予上一次的value<br>mget(key1, key2,…, key N)：返回库中多个string的value<br>setnx(key, value)：添加string，名称为key，值为value<br>setex(key, time, value)：向库中添加string，设定过期时间time<br>mset(key N, value N)：批量设置多个string的值<br>msetnx(key N, value N)：如果所有名称为key i的string都不存在<br>incr(key)：名称为key的string增1操作<br>incrby(key, integer)：名称为key的string增加integer<br>decr(key)：名称为key的string减1操作<br>decrby(key, integer)：名称为key的string减少integer<br>append(key, value)：名称为key的string的值附加value<br>substr(key, start, end)：返回名称为key的string的value的子串</p>
+<p>对List操作的命令</p>
+<p>rpush(key, value)：在名称为key的list尾添加一个值为value的元素<br>lpush(key, value)：在名称为key的list头添加一个值为value的 元素<br>llen(key)：返回名称为key的list的长度<br>lrange(key, start, end)：返回名称为key的list中start至end之间的元素<br>ltrim(key, start, end)：截取名称为key的list<br>lindex(key, index)：返回名称为key的list中index位置的元素<br>lset(key, index, value)：给名称为key的list中index位置的元素赋值<br>lrem(key, count, value)：删除count个key的list中值为value的元素<br>lpop(key)：返回并删除名称为key的list中的首元素<br>rpop(key)：返回并删除名称为key的list中的尾元素<br>blpop(key1, key2,… key N, timeout)：lpop命令的block版本。<br>brpop(key1, key2,… key N, timeout)：rpop的block版本。<br>rpoplpush(srckey, dstkey)：返回并删除名称为srckey的list的尾元素，并将该元素添加到名称为dstkey的list的头部</p>
+<p>对Set操作的命令</p>
+<p>sadd(key, member)：向名称为key的set中添加元素member<br>srem(key, member) ：删除名称为key的set中的元素member<br>spop(key) ：随机返回并删除名称为key的set中一个元素<br>smove(srckey, dstkey, member) ：移到集合元素<br>scard(key) ：返回名称为key的set的基数<br>sismember(key, member) ：member是否是名称为key的set的元素<br>sinter(key1, key2,…key N) ：求交集<br>sinterstore(dstkey, (keys)) ：求交集并将交集保存到dstkey的集合<br>sunion(key1, (keys)) ：求并集<br>sunionstore(dstkey, (keys)) ：求并集并将并集保存到dstkey的集合<br>sdiff(key1, (keys)) ：求差集<br>sdiffstore(dstkey, (keys)) ：求差集并将差集保存到dstkey的集合<br>smembers(key) ：返回名称为key的set的所有元素<br>srandmember(key) ：随机返回名称为key的set的一个元素</p>
+<p>对Hash操作的命令</p>
+<p>hset(key, field, value)：向名称为key的hash中添加元素field<br>hget(key, field)：返回名称为key的hash中field对应的value<br>hmget(key, (fields))：返回名称为key的hash中field i对应的value<br>hmset(key, (fields))：向名称为key的hash中添加元素field<br>hincrby(key, field, integer)：将名称为key的hash中field的value增加integer<br>hexists(key, field)：名称为key的hash中是否存在键为field的域<br>hdel(key, field)：删除名称为key的hash中键为field的域<br>hlen(key)：返回名称为key的hash中元素个数<br>hkeys(key)：返回名称为key的hash中所有键<br>hvals(key)：返回名称为key的hash中所有键对应的value<br>hgetall(key)：返回名称为key的hash中所有的键（field）及其对应的value</p>
+<h3 id="视频教程地址">视频教程地址</h3><p><a href="http://www.lampbrother.net/phptrain/video_10.php" target="_blank" rel="external">http://www.lampbrother.net/phptrain/video_10.php</a></p>
+<h3 id="《redis设计与实现》">《redis设计与实现》</h3><p><a href="http://redisbook.readthedocs.org/en/latest/" target="_blank" rel="external">http://redisbook.readthedocs.org/en/latest/</a></p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2014/12/22-android-XMPP-openfire-smack.html">android XMPP openfire smack笔记</a>
+          </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2014/12/10-android-OS-framework.html">android OS framework 从多方面理解 Android 体系结构</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2014/12/15-redis-learn-note.html">
+                  http://lv-code.com/2014/12/15-redis-learn-note.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/NoSQL/">NoSQL</a>, <a href="/tags/数据结构/">数据结构</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜一下">
+    <i class="icon-search"></i>
+    <input type="hidden" name="q" value="site:lv-code.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/NoSQL/">NoSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/ORM/">ORM</a><small>1</small></li>
+  
+    <li><a href="/tags/android/">android</a><small>1</small></li>
+  
+    <li><a href="/tags/android-生命周期/">android 生命周期</a><small>1</small></li>
+  
+    <li><a href="/tags/android-IPC-AIDL/">android, IPC, AIDL</a><small>1</small></li>
+  
+    <li><a href="/tags/android-dagger/">android, dagger</a><small>1</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>4</small></li>
+  
+    <li><a href="/tags/健身/">健身</a><small>1</small></li>
+  
+    <li><a href="/tags/反射机制/">反射机制</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构/">数据结构</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/04/08-essay-first.html">essay-first</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/08-jianfulun.html">健腹轮的注意事项</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/08-hexo-blog-coding-net.html">在coding.net的webIDE配置hexo</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/07-apache-cmd-usefull.html">apache-cmd-usefull apache常用命令总结</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/06-markdown-editor.html">markdown-editor markdown在线编辑器</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/04-php-getRelativePath.html">php-getRelativePath PHP计算文件的相对路径</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/03-php-orm-test.html">php-orm-test 类似ORM的demo</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/03-hexo-theme-air-config.html">hexo-theme-air-config 我的hexo主题配置文件</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/02-php-reflectionClass-test.html">php-reflectionClass-test 测试php反射机制</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/01-hello-world.html">Hello World</a>
+      </li>
+    
+      <li>
+        <a href="/2015/03/28-算法的时间复杂度.html">算法的时间复杂度</a>
+      </li>
+    
+      <li>
+        <a href="/2015/01/04-java-base-data-type.html">java base data type</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+  <h3 class="title">友情链接</h3>
+  <ul class="entry">
+      <li>
+        <a href="http://liangxifeng.com/" target="_blank">小梁</a>
+      </li>
+  </ul>
+</div>
+
+
+  <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-cn.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=CN&ID=V20070822%2FCN%2Flvcodecom-23%2F8001%2F02cff670-9b8b-498a-a01c-4bf20954967f"> </SCRIPT> <NOSCRIPT><A HREF="http://ws-cn.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=CN&ID=V20070822%2FCN%2Flvcodecom-23%2F8001%2F02cff670-9b8b-498a-a01c-4bf20954967f&Operation=NoScript">Amazon.cn Widgets</A></NOSCRIPT>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 gangzi
+  
+  
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254749423'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1254749423%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+
+</body>
+
+</html>

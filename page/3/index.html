@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="content-language" content="zh-cn">
   
   <title>第 3 页 | 爱编程</title>
   <meta name="author" content="gangzi">
@@ -73,11 +74,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-12-05T08:48:45.000Z"><a href="/2014/12/05/android-studio-install-and-use/">2014-12-05</a></time>
+        <time datetime="2014-12-05T08:48:45.000Z"><a href="/2014/12/05-android-studio-install-and-use.html">2014-12-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/12/05/android-studio-install-and-use/">android studio install and use</a></h1>
+    <h1 class="title"><a href="/2014/12/05-android-studio-install-and-use.html">android studio install and use</a></h1>
   
 
     </header>
@@ -92,7 +93,7 @@
       
         
           <div class="alignleft">
-            <a href="/2014/12/05/android-studio-install-and-use/#more" class="more-link">Read More</a>
+            <a href="/2014/12/05-android-studio-install-and-use.html#more" class="more-link">Read More</a>
           </div>
         
         
@@ -122,11 +123,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-12-05T01:35:09.000Z"><a href="/2014/12/05/android-AIDL-IPC/">2014-12-05</a></time>
+        <time datetime="2014-12-05T01:35:09.000Z"><a href="/2014/12/05-android-AIDL-IPC.html">2014-12-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/12/05/android-AIDL-IPC/">android之AIDL实现IPC（间通信）</a></h1>
+    <h1 class="title"><a href="/2014/12/05-android-AIDL-IPC.html">android之AIDL实现IPC（间通信）</a></h1>
   
 
     </header>
@@ -141,7 +142,7 @@
       
         
           <div class="alignleft">
-            <a href="/2014/12/05/android-AIDL-IPC/#more" class="more-link">Read More</a>
+            <a href="/2014/12/05-android-AIDL-IPC.html#more" class="more-link">Read More</a>
           </div>
         
         
@@ -171,11 +172,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-12-03T01:34:01.000Z"><a href="/2014/12/03/hexo-use-note/">2014-12-03</a></time>
+        <time datetime="2014-12-03T01:34:01.000Z"><a href="/2014/12/03-hexo-use-note.html">2014-12-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/12/03/hexo-use-note/">hexo-use-note</a></h1>
+    <h1 class="title"><a href="/2014/12/03-hexo-use-note.html">hexo-use-note</a></h1>
   
 
     </header>
@@ -184,6 +185,18 @@
         <h1 id="执行sudo_hexo_d_报错">执行sudo hexo d 报错</h1><p>Permission denied (publickey).<br>fatal: The remote end hung up unexpectedly</p>
 <p>早上刚到公司，解决了这个问题<br>原因是sudo会调用root用户的ssh key</p>
 <p>sudo chown -R user.user hexo<br>hexo d  # 执行成功！</p>
+<h3 id="添加站点地图hexo-generator-sitemap">添加站点地图hexo-generator-sitemap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<p>You can configure this plugin in _config.yml.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">    path: sitemap.xml</span><br></pre></td></tr></table></figure>
+<p>永久链接非常的长，这样对SEO的不是非常的友好，对于一篇文章的地址来说最好不能深过三级。 关于hexo的永久链接配置地址，在根目录下的_config.yml文件中的permalink:部分。</p>
+<p>我们可以看到默认的值为permalink: :year/:month/:day/:title/</p>
+<p>建议一<br>由于搜索引擎的蜘蛛一般喜欢静态化的页面，若只是简单的优化，我们只要改成permalink: :year/:month/:day/:title.html就可以了。</p>
+<p>这样的做法的优点是:</p>
+<p>修改简单<br>在目录里面易于管理<br>缺点:</p>
+<p>目录过深对SEO不太友好<br>建议二<br>将默认值改为post/:title.html或者:title.html</p>
+<p>优点:</p>
+<p>地址简单优美<br>目录浅，对SEO友好<br>缺点:</p>
+<p>文章不按时间归类(或者对于一些人不需要?)<br>文章过多的时候会在一个文件夹内生成很多文件<br>总结<br>我个人比较建议post/:title.html这种方法 静态化和永久链接必须在博客搭建起来一开始就想好，不然地址的改变将会引起评论的ID的改变，中途文章一多需要修改就非常麻烦，甚至没法修改。</p>
 
       
     </div>
@@ -219,11 +232,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-12-02T09:39:38.000Z"><a href="/2014/12/02/android-open-project/">2014-12-02</a></time>
+        <time datetime="2014-12-02T09:39:38.000Z"><a href="/2014/12/02-android-open-project.html">2014-12-02</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/12/02/android-open-project/">android-open-project</a></h1>
+    <h1 class="title"><a href="/2014/12/02-android-open-project.html">android-open-project</a></h1>
   
 
     </header>
@@ -268,11 +281,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-11-28T07:11:44.000Z"><a href="/2014/11/28/android-application-or-activity-context/">2014-11-28</a></time>
+        <time datetime="2014-11-28T07:11:44.000Z"><a href="/2014/11/28-android-application-or-activity-context.html">2014-11-28</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/11/28/android-application-or-activity-context/">android-application-or-activity-context</a></h1>
+    <h1 class="title"><a href="/2014/11/28-android-application-or-activity-context.html">android-application-or-activity-context</a></h1>
   
 
     </header>
@@ -326,11 +339,11 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-11-21T07:50:32.000Z"><a href="/2014/11/21/android-life-cycle-test/">2014-11-21</a></time>
+        <time datetime="2014-11-21T07:50:32.000Z"><a href="/2014/11/21-android-life-cycle-test.html">2014-11-21</a></time>
       
       
   
-    <h1 class="title"><a href="/2014/11/21/android-life-cycle-test/">android生命周期学习和测试</a></h1>
+    <h1 class="title"><a href="/2014/11/21-android-life-cycle-test.html">android生命周期学习和测试</a></h1>
   
 
     </header>
@@ -418,51 +431,51 @@
   <ul class="entry">
     
       <li>
-        <a href="/2015/04/08/essay-first/">essay-first</a>
+        <a href="/2015/04/08-essay-first.html">essay-first</a>
       </li>
     
       <li>
-        <a href="/2015/04/08/jianfulun/">健腹轮的注意事项</a>
+        <a href="/2015/04/08-jianfulun.html">健腹轮的注意事项</a>
       </li>
     
       <li>
-        <a href="/2015/04/08/hexo-blog-coding-net/">在coding.net的webIDE配置hexo</a>
+        <a href="/2015/04/08-hexo-blog-coding-net.html">在coding.net的webIDE配置hexo</a>
       </li>
     
       <li>
-        <a href="/2015/04/07/apache-cmd-usefull/">apache-cmd-usefull apache常用命令总结</a>
+        <a href="/2015/04/07-apache-cmd-usefull.html">apache-cmd-usefull apache常用命令总结</a>
       </li>
     
       <li>
-        <a href="/2015/04/06/markdown-editor/">markdown-editor markdown在线编辑器</a>
+        <a href="/2015/04/06-markdown-editor.html">markdown-editor markdown在线编辑器</a>
       </li>
     
       <li>
-        <a href="/2015/04/04/php-getRelativePath/">php-getRelativePath PHP计算文件的相对路径</a>
+        <a href="/2015/04/04-php-getRelativePath.html">php-getRelativePath PHP计算文件的相对路径</a>
       </li>
     
       <li>
-        <a href="/2015/04/03/php-orm-test/">php-orm-test 类似ORM的demo</a>
+        <a href="/2015/04/03-php-orm-test.html">php-orm-test 类似ORM的demo</a>
       </li>
     
       <li>
-        <a href="/2015/04/03/hexo-theme-air-config/">hexo-theme-air-config 我的hexo主题配置文件</a>
+        <a href="/2015/04/03-hexo-theme-air-config.html">hexo-theme-air-config 我的hexo主题配置文件</a>
       </li>
     
       <li>
-        <a href="/2015/04/02/php-reflectionClass-test/">php-reflectionClass-test 测试php反射机制</a>
+        <a href="/2015/04/02-php-reflectionClass-test.html">php-reflectionClass-test 测试php反射机制</a>
       </li>
     
       <li>
-        <a href="/2015/04/01/hello-world/">Hello World</a>
+        <a href="/2015/04/01-hello-world.html">Hello World</a>
       </li>
     
       <li>
-        <a href="/2015/03/28/算法的时间复杂度/">算法的时间复杂度</a>
+        <a href="/2015/03/28-算法的时间复杂度.html">算法的时间复杂度</a>
       </li>
     
       <li>
-        <a href="/2015/01/04/java-base-data-type/">java base data type</a>
+        <a href="/2015/01/04-java-base-data-type.html">java base data type</a>
       </li>
     
   </ul>

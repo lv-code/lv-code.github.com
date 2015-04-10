@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="zh-cn">
   
-  <title>归档：2014/11 | 爱编程</title>
+  <title>android之AIDL实现IPC（间通信） | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="记录工作和生活点滴！">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="android之AIDL实现IPC（间通信）"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -56,35 +56,99 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2014/11</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2014-11-28T07:11:44.000Z"><a href="/2014/11/28-android-application-or-activity-context.html">2014-11-28</a></time>
-            
-              <h1 class="title"><a href="/2014/11/28-android-application-or-activity-context.html">android-application-or-activity-context</a></h1>
-            
-          </header>
-        </div>
-      </article>
-    
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2014-11-21T07:50:32.000Z"><a href="/2014/11/21-android-life-cycle-test.html">2014-11-21</a></time>
-            
-              <h1 class="title"><a href="/2014/11/21-android-life-cycle-test.html">android生命周期学习和测试</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-12-05T01:35:09.000Z"><a href="/2014/12/05-android-AIDL-IPC.html">2014-12-05</a></time>
+      
+      
+  
+    <h1 class="title">android之AIDL实现IPC（间通信）</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="目录">目录</h3><p><strong>什么是AIDL，AIDL的作用</strong><br><strong>AIDL适用场景</strong><br><strong>AIDL开发步骤</strong></p>
+<a id="more"></a>
+<h3 id="什么是AIDL，AIDL的作用">什么是AIDL，AIDL的作用</h3><p>AIDL (Android Interface Definition Language) 是一种IDL 语言，用于生成可以在Android设备上两个进程之间进行进程间通信(inter-process communication, IPC)的代码。</p>
+<p>由于每个应用程序都运行在自己的进程空间，并且可以从应用程序UI运行另一个服务进程，而且经常会在不同的进程间传递对象。<br>在Android平台，一个进程通常不能访问另一个进程的内存空间，所以要想对话，需要将对象分解成操作系统可以理解的基本单元，并且有序的通过进程边界。</p>
+<p>　　通过代码来实现这个数据传输过程是冗长乏味的，Android提供了AIDL工具来处理这项工作。</p>
+<h3 id="AIDL适用场景">AIDL适用场景</h3><p>官方文档特别提醒我们何时使用AIDL是必要的：只有你允许客户端从不同的应用程序为了进程间的通信而去访问你的service，以及想在你的service处理多线程。具体的不同场景下的AIDL设计规则如下：<br>如果不需要进行不同应用程序间的并发通信(IPC)，通过实现一个Binder对象来创建接口；或者你想进行IPC，但不需要处理多线程的，则使用Messenger对象来创建接口。无论如何，在使用AIDL前，必须要理解如何绑定service——bindService。</p>
+<h3 id="AIDL开发步骤">AIDL开发步骤</h3><p>AIDL接口文件，和普通的接口内容没有什么特别，只是它的扩展名为.aidl，保存在src目录下。如果其他应用程序需要IPC，则那些应用程序的src也要带有这个文件。Android SDK tools就会在gen目录自动生成一个IBinder接口文件。service必须适当地实现这个IBinder接口。那么客户端程序就能绑定这个service并在IPC时从IBinder调用方法。每个aidl文件只能定义一个接口，而且只能是接口的声明和方法的声明。</p>
+<h3 id="参考文章">参考文章</h3><p><a href="http://blog.csdn.net/wxyyxc1992/article/details/17303953" target="_blank" rel="external">http://blog.csdn.net/wxyyxc1992/article/details/17303953</a></p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2014/12/05-android-studio-install-and-use.html">android studio install and use</a>
+          </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2014/12/03-hexo-use-note.html">hexo-use-note</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2014/12/05-android-AIDL-IPC.html">
+                  http://lv-code.com/2014/12/05-android-AIDL-IPC.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/android/">android</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/android-IPC-AIDL/">android, IPC, AIDL</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
