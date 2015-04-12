@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="zh-cn">
   
-  <title>js-note | 爱编程</title>
+  <title>js-note js开发笔记 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="记录工作和生活点滴！">
@@ -12,7 +12,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="js-note"/>
+  <meta property="og:title" content="js-note js开发笔记"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -79,7 +79,7 @@
       
       
   
-    <h1 class="title">js-note</h1>
+    <h1 class="title">js-note js开发笔记</h1>
   
 
     </header>
@@ -91,34 +91,29 @@
 <p>考虑如下代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> a = b = <span class="number">5</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br></pre></td></tr></table></figure>
 <p>请问控制台上会输出什么？</p>
-<p>解释</p>
-<p>输出：5</p>
+<h4 id="解释">解释</h4><p>输出：5</p>
 <p>这一题的陷阱是，在函数表达式中有两个赋值，但a是用关键字var 来声明的，这意味着a是局部变量，而b则被赋予为全局变量。</p>
 <p>另一个陷阱是，它并没有使用严格模式（use strict）。在函数里面，如果启用了严格模式，代码就会报错：“Uncaught ReferenceError: b is not defined”。请记住，严格模式需要你显式地引用全局作用域，代码应该写成：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="pi">'use strict'</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">window</span>.b = <span class="number">5</span>;</span><br><span class="line">&#125;)();</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br></pre></td></tr></table></figure></p>
 <p>问题2：创建“内置”方法</p>
 <p>给String对象定义一个repeatify方法。该方法接收一个整数参数，作为字符串重复的次数，最后返回重复指定次数的字符串。例如：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">'hello'</span>.repeatify(<span class="number">3</span>));</span><br><span class="line"></span><br><span class="line">输出应该是</span><br><span class="line"></span><br><span class="line">hellohellohello.</span><br></pre></td></tr></table></figure></p>
-<p>解释</p>
-<p>一个可行的做法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.repeatify = <span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span><span class="params">(times)</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">str += <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h4 id="解释-1">解释</h4><p>一个可行的做法如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.repeatify = <span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span><span class="params">(times)</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">''</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; times; i++) &#123;</span><br><span class="line">str += <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>这题测试开发者对Javascript的继承及原型属性的知识，它同时也检验了开发者是否能扩展内置数据类型的方法。</p>
 <p>这里的另一个关键点是，看你怎样避免重写可能已经定义了的方法。这可以通过在定义自己的方法之前，检测方法是否已经存在。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.repeatify = <span class="built_in">String</span>.prototype.repeatify || <span class="function"><span class="keyword">function</span><span class="params">(times)</span> </span>&#123;<span class="comment">/* code here */</span>&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>当你被问起去扩展一个Javascript方法时，这个技术非常有用。</p>
 <p>问题3 ：声明提前</p>
 <p>下面这段代码的结果是什么？为什么？<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(foo());</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;&#125;</span><br><span class="line"> </span><br><span class="line">test();</span><br></pre></td></tr></table></figure></p>
-<p>解释</p>
-<p>代码的运行结果：undefined和 2</p>
+<h4 id="解释-2">解释</h4><p>代码的运行结果：undefined和 2</p>
 <p>理由是，变量和函数的声明都被提前至函数体的顶部，而同时变量并没有被赋值。因此，当打印变量a时，它虽存在于函数体（因为a已经被声明），但仍然是undefined。换句话说，上面的代码等同于下面的代码：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="built_in">console</span>.log(foo());</span><br><span class="line"> </span><br><span class="line">a = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">test();</span><br></pre></td></tr></table></figure>
 <p>问题4：JavaScript中的this</p>
 <p>下面代码的运行结果是什么并做解释。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fullname = <span class="string">'John Doe'</span>;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">fullname: <span class="string">'Colin Ihrig'</span>,</span><br><span class="line">prop: &#123;</span><br><span class="line"> </span><br><span class="line">fullname: <span class="string">'Aurelio De Rosa'</span>,</span><br><span class="line">getFullname: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">this</span>.fullname;</span><br><span class="line">&#125;&#125;&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="built_in">console</span>.log(obj.prop.getFullname());</span><br><span class="line"><span class="keyword">var</span> test = obj.prop.getFullname;</span><br><span class="line"><span class="built_in">console</span>.log(test());</span><br></pre></td></tr></table></figure>
-<p>解释</p>
-<p>代码输出：Aurelio De Rosa 和 John Doe</p>
+<h4 id="解释-3">解释</h4><p>代码输出：Aurelio De Rosa 和 John Doe</p>
 <p>理由是，Javascript中关键字this所指代的函数上下文，取决于函数是怎样被调用的，而不是怎样被定义的。</p>
 <p>在第一个console.log()，getFullname()被作为obj.prop对象被调用。因此，当前的上下文指代后者，函数返回这个对象的fullname属性。相反，当getFullname()被赋予test变量，当前的上下文指代全局对象window，这是因为test被隐式地作为全局对象的属性。基于这一点，函数返回window的fullname，在本例中即为代码的第一行。</p>
 <p>问题5：call()和apply()</p>
 <p>修复前一个问题，让最后一个console.log() 打印输出Aurelio De Rosa.</p>
-<p>解释</p>
-<p>这个问题可以通过运用call（）或者apply()方法强制转换上下文环境。如果你不了解这两个方法及它们的区别，我建议你看看这篇文章What’s the difference between function.call and function.apply?. 下面的代码中我用了call(),但apply（）也能产生同样的结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(test.call(obj.prop));</span><br></pre></td></tr></table></figure></p>
+<h4 id="解释-4">解释</h4><p>这个问题可以通过运用call（）或者apply()方法强制转换上下文环境。如果你不了解这两个方法及它们的区别，我建议你看看这篇文章What’s the difference between function.call and function.apply?. 下面的代码中我用了call(),但apply（）也能产生同样的结果：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(test.call(obj.prop));</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -257,7 +252,7 @@
       </li>
     
       <li>
-        <a href="/2015/01/12-js-note.html">js-note</a>
+        <a href="/2015/01/12-js-note.html">js-note js开发笔记</a>
       </li>
     
       <li>
