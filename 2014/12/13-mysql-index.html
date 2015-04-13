@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="zh-cn">
   
-  <title>hexo-theme-air-config 我的hexo主题配置文件 | 爱编程</title>
+  <title>mysql-index mysql索引 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="mysql索引, mysql索引查询, mysql索引优化,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="hexo-theme-air-config 我的hexo主题配置文件"/>
+  <meta property="og:title" content="mysql-index mysql索引"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -77,30 +77,28 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-04-03T02:40:13.000Z"><a href="/2015/04/03-hexo-theme-air-config.html">2015-04-03</a></time>
+        <time datetime="2014-12-13T14:24:40.000Z"><a href="/2014/12/13-mysql-index.html">2014-12-13</a></time>
       
       
   
-    <h1 class="title">hexo-theme-air-config 我的hexo主题配置文件</h1>
+    <h1 class="title">mysql-index mysql索引</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>从hexo 的官方博客主题中选择了 air这个主题，因为它简单、可适应。<br>下面是我的配置，主要是删减了一些widget。<br><a id="more"></a></p>
-<p>menu:<br>  首页: /</p>
-<h1 id="TraceInvest:_http://traceinvest-com">TraceInvest: <a href="http://traceinvest.com" target="_blank" rel="external">http://traceinvest.com</a></h1><p>  随感: /categories/essay/<br>  技术: /categories/tech/<br>  php: /categories/php/<br>  生活: /categories/life/<br>  归档: /archives</p>
-<p>widgets:</p>
-<ul>
-<li>search</li>
-<li>tag</li>
-<li>recent_posts</li>
-<li>friend_links<h1 id="-_traceInvest">- traceInvest</h1></li>
+        <p>这里是mysql索引的常用知识记录。<br>索引用于快速找出在某个列中有一特定值的行。对相关列使用索引是提高SELECT 操作性能的最佳途径。</p>
+<h4 id="ToDo">ToDo</h4><ul>
+<li>了解B-tree和B+tree，[这种最好是看视频]<a id="more"></a></li>
 </ul>
-<p>excerpt_link: Read More</p>
-<h1 id="twitter:">twitter:</h1><h1 id="username:">username:</h1><h1 id="show_replies:_false">show_replies: false</h1><h1 id="tweet_count:_5">tweet_count: 5</h1><h1 id="addthis:">addthis:</h1><h1 id="enable:_true">enable: true</h1><h1 id="pubid:">pubid:</h1><h1 id="weibo:_true">weibo: true</h1><h1 id="linkedin:_false">linkedin: false</h1><h1 id="google:_false">google: false</h1><h1 id="facebook:_false">facebook: false</h1><h1 id="twitter:_false">twitter: false</h1><p>copyright:<br>  enable: true<br>  claim: 版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0<br>  show_link: true</p>
-<p>fancybox: true</p>
-<h1 id="google_analytics:_UA-45019001-1">google_analytics: UA-45019001-1</h1><h1 id="analytics_site_name:_topdna-org">analytics_site_name: topdna.org</h1><p>rss:</p>
+<ol>
+<li><p>mysql如何使用索引<br>查询要使用索引最主要的条件是查询条件中需要使用索引关键字，如果是<code>多列索引</code>，那么只有查询条件使用了多列关键字<code>最左边</code>的前缀时（前缀索引），才可以使用索引，否则 将不能使用索引。</p>
+<pre><code>下列情况下， Mysql 不会使用已有的索引：
+</code></pre><p>   1、如果 mysql 估计使用索引比全表扫描更慢，则不使用索引。例如：如果 key_part均匀分布在 1 和 100 之间，下列查询中使用索引就不是很好：</p>
+<pre><code><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_name <span class="keyword">where</span> key_part &gt; <span class="number">1</span> <span class="keyword">and</span> key_part &lt; <span class="number">90</span>
+</code></pre><p>   2、如果使用 <code>heap表</code>并且 where 条件中不用＝索引列，其他 &gt; 、 &lt; 、 &gt;= 、 &lt;= 均不使 用索引（MyISAM和innodb表使用索引）；<br>   3、使用or分割的条件，如果or前的条件中的列有索引，后面的列中没有索引，那么涉及到的索引都不会使用。<br>   4、如果创建复合索引，如果条件中使用的列不是索引列的第一部分；（不是前缀索引）<br>   4、如果 like 是以％开始；<br>   5、对 where 后边条件为字符串的一定要加引号，字符串如果为数字 mysql 会自动转 为字符串，但是不使用索引。</p>
+</li>
+</ol>
 
       
     </div>
@@ -113,12 +111,12 @@
         </div>
         
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2015/04/03-php-orm-test.html">php-orm-test 类似ORM的demo</a>
+            <em>上一篇: </em><a href="/2014/12/15-redis-learn-note.html">redis-learn-note redis常用命令和基础知识学习笔记</a>
           </div>
         
         
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2015/04/02-php-reflectionClass-test.html">php-reflectionClass-test 测试php反射机制</a>
+            <em>下一篇: </em><a href="/2014/12/13-mysql-optimize.html">mysql-optimize MySQL优化</a>
           </div>
           
           <div class="clearfix"></div>
@@ -132,8 +130,8 @@
             
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2015/04/03-hexo-theme-air-config.html">
-                  http://lv-code.com/2015/04/03-hexo-theme-air-config.html
+                <a href="/2014/12/13-mysql-index.html">
+                  http://lv-code.com/2014/12/13-mysql-index.html
                 </a>
               </span>
             
@@ -142,13 +140,13 @@
         
   
   <div class="categories">
-    <a href="/categories/tech/">tech</a>
+    <a href="/categories/mysql/">mysql</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/hexo/">hexo</a>
+    <a href="/tags/mysql/">mysql</a>
   </div>
 
         
