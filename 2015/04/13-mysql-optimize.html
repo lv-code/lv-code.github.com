@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="zh-cn">
   
-  <title>android, android studio | 爱编程</title>
+  <title>mysql-optimize MySQL优化 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="记录工作和生活点滴！">
@@ -14,7 +14,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="mysql-optimize MySQL优化"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -60,24 +60,101 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">android, android studio</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2014-12-05T08:48:45.000Z"><a href="/2014/12/05-android-studio-install-and-use.html">2014-12-05</a></time>
-            
-              <h1 class="title"><a href="/2014/12/05-android-studio-install-and-use.html">android studio install and use</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-04-13T03:35:59.000Z"><a href="/2015/04/13-mysql-optimize.html">2015-04-13</a></time>
+      
+      
+  
+    <h1 class="title">mysql-optimize MySQL优化</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在这里记录了<code>SQL</code>优化的步骤，用到MySQL优化时用到。<br><a id="more"></a></p>
+<p>[TOC]</p>
+<h4 id="show_status了解各SQL的执行频率">show status了解各<code>SQL</code>的执行频率</h4><p>SHOW STATUS 可以根据需要显示 session 级别的统计结果和 global级别的统计结果。</p>
+<p>通过以上几个参数，可以很容易的了解当前数据库的应用是以插入更新为主还 是以查询操作为主，以及各种类型的 SQL大致的执行比例是多少。</p>
+<p>对于事务型的应用，通过 Com_commit 和 Com_rollback 可以了解事务提交和回 滚的情况，对于回滚操作非常频繁的数据库，可能意味着应用编写存在问题。</p>
+<p>此外，以下几个参数便于我们了解数据库的基本情况：</p>
+<ol>
+<li>Connections 试图连接 Mysql 服务器的次数</li>
+<li>Uptime 服务器工作时间</li>
+<li>Slow_queries 慢查询的次数</li>
+</ol>
+<h4 id="定位执行效率较低的SQL语句">定位执行效率较低的SQL语句</h4><ol>
+<li>可以<strong>通过慢查询日志</strong>定位那些执行效率较低的 sql 语句，用 —log-slow-queries[=file_name] 选项启动时， mysqld 写一个包含所有执行时间超过long_query_time 秒的 SQL 语句的日志文件。可以链接到管理维护中的相关章节。</li>
+<li>使用 <strong>show processlist</strong>查看当前MYSQL的线程， 命令慢查询日志在查询结束以后才纪录，所以在应用反映执行效率出现问题的时候查 询慢查询日志并不能定位问题，可以使用 show processlist 命令查看当前 MySQL 在进行的线程，包括线程的状态，是否锁表等等，可以实时的查看 SQL 执行情况， 同时对一些锁表操作进行优化。</li>
+</ol>
+<h3 id="参考资料">参考资料</h3><ul>
+<li>博客：<a href="http://weibo.com/u/2788354117" target="_blank" rel="external">@马克飞象</a>，<a href="http://weibo.com/ggock" title="开发者个人账号" target="_blank" rel="external">@GGock</a></li>
+<li>博客：<a href="http://blog.csdn.net/hguisu/article/details/5731629" target="_blank" rel="external">http://blog.csdn.net/hguisu/article/details/5731629</a></li>
+</ul>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2015/04/08-hexo-blog-coding-net.html">在coding.net的webIDE配置hexo</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2015/04/13-mysql-optimize.html">
+                  http://lv-code.com/2015/04/13-mysql-optimize.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/mysql/">mysql</a>
+  </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
