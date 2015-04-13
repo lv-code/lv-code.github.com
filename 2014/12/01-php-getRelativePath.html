@@ -10,7 +10,7 @@
   <meta name="description" content="记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="php计算文件相对路径, 计算相对路径, 文件相对路径,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -87,7 +87,10 @@
     </header>
     <div class="entry">
       
-        
+        <p>在程序中经常会用到相对路径，这里写个函数。<br>[关键词] <code>parse_url</code><br><a id="more"></a><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">abpath</span><span class="params">(<span class="variable">$a</span>, <span class="variable">$b</span>)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$ainfo</span> = parse_url(<span class="variable">$a</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$binfo</span> = parse_url(<span class="variable">$b</span>);</span><br><span class="line">    <span class="variable">$apath</span> = ltrim(<span class="variable">$ainfo</span>[<span class="string">'path'</span>], <span class="string">'/'</span>);</span><br><span class="line">    <span class="variable">$bpath</span> = ltrim(<span class="variable">$binfo</span>[<span class="string">'path'</span>], <span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$arr</span> = explode(<span class="string">'/'</span>,<span class="variable">$apath</span>);</span><br><span class="line">    <span class="variable">$brr</span> = explode(<span class="string">'/'</span>,<span class="variable">$bpath</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">foreach</span> (<span class="variable">$arr</span> <span class="keyword">as</span> <span class="variable">$key</span>=&gt;<span class="variable">$value</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$value</span>==<span class="variable">$brr</span>[<span class="variable">$key</span>]) &#123;</span><br><span class="line">            <span class="variable">$brr</span>[<span class="variable">$key</span>] = <span class="string">'..'</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">$cha</span> = implode(<span class="string">'/'</span>,<span class="variable">$brr</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$cha</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>计算文件$b相对于文件$a的路径，如<br>     $a = ’/a/b/c/d/e.php’; $b = ’/a/b/12/34/c.php’;</p>
+<p>结果<br>     ../../12/34/c.php</p>
+
       
     </div>
     
