@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lv-code.com/2014/12/05-android-AIDL-IPC.html</loc>
+    <lastmod>2015-04-13T14:46:38.218Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/11/21-android-life-cycle-test.html</loc>
+    <lastmod>2015-04-13T14:45:26.494Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lv-code.com/2014/12/13-mysql-index.html</loc>
     <lastmod>2015-04-13T14:40:53.558Z</lastmod>
   </url>
@@ -117,11 +127,6 @@
   </url>
   
   <url>
-    <loc>http://lv-code.com/2014/11/21-android-life-cycle-test.html</loc>
-    <lastmod>2015-04-08T03:29:51.169Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://lv-code.com/2014/12/10-android-engineer-job-request.html</loc>
     <lastmod>2015-04-08T03:29:51.113Z</lastmod>
   </url>
@@ -139,11 +144,6 @@
   <url>
     <loc>http://lv-code.com/2014/11/28-android-application-or-activity-context.html</loc>
     <lastmod>2015-04-08T03:29:50.885Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/05-android-AIDL-IPC.html</loc>
-    <lastmod>2015-04-08T03:29:50.765Z</lastmod>
   </url>
   
 </urlset>
