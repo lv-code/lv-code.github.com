@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lv-code.com/2015/04/15-algorithm-anagrams.html</loc>
+    <lastmod>2015-04-15T09:46:57.832Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lv-code.com/2015/04/15-php-ci-route.html</loc>
     <lastmod>2015-04-15T08:25:37.009Z</lastmod>
   </url>
