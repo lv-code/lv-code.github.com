@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lv-code.com/2014/12/08-android-Dagger-note.html</loc>
+    <lastmod>2015-04-15T00:37:52.593Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lv-code.com/2014/02/13-php-codeigniter-note.html</loc>
     <lastmod>2015-04-13T15:39:54.182Z</lastmod>
   </url>
@@ -139,11 +144,6 @@
   <url>
     <loc>http://lv-code.com/2014/12/29-android-debug-note.html</loc>
     <lastmod>2015-04-08T03:29:51.065Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/08-android-Dagger-note.html</loc>
-    <lastmod>2015-04-08T03:29:50.993Z</lastmod>
   </url>
   
   <url>
