@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="zh-cn">
   
-  <title>mysql-index mysql索引 | 爱编程</title>
+  <title>weixin-note PHP调用微信接口 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="mysql索引, mysql索引查询, mysql索引优化,php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="微信接口, 微信接口调用, PHP调用微信接口,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="mysql-index mysql索引"/>
+  <meta property="og:title" content="weixin-note PHP调用微信接口"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -77,28 +77,18 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2014-12-13T14:24:40.000Z"><a href="/2014/12/13-mysql-index.html">2014-12-13</a></time>
+        <time datetime="2015-04-16T07:33:27.000Z"><a href="/2015/04/16-weixin-note.html">2015-04-16</a></time>
       
       
   
-    <h1 class="title">mysql-index mysql索引</h1>
+    <h1 class="title">weixin-note PHP调用微信接口</h1>
   
 
     </header>
     <div class="entry">
       
-        <p>这里是mysql索引的常用知识记录。<br>索引用于快速找出在某个列中有一特定值的行。对相关列使用索引是提高SELECT 操作性能的最佳途径。</p>
-<h4 id="ToDo">ToDo</h4><ul>
-<li>了解B-tree和B+tree，[这种最好是看视频]<a id="more"></a></li>
-</ul>
-<ol>
-<li><p>mysql如何使用索引<br>查询要使用索引最主要的条件是查询条件中需要使用索引关键字，如果是<code>多列索引</code>，那么只有查询条件使用了多列关键字<code>最左边</code>的前缀时（前缀索引），才可以使用索引，否则 将不能使用索引。</p>
-<pre><code>下列情况下， Mysql 不会使用已有的索引：
-</code></pre><p>   1、如果 mysql 估计使用索引比全表扫描更慢，则不使用索引。例如：如果 key_part均匀分布在 1 和 100 之间，下列查询中使用索引就不是很好：</p>
-<pre><code><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_name <span class="keyword">where</span> key_part &gt; <span class="number">1</span> <span class="keyword">and</span> key_part &lt; <span class="number">90</span>
-</code></pre><p>   2、如果使用 <code>heap表</code>并且 where 条件中不用＝索引列，其他 &gt; 、 &lt; 、 &gt;= 、 &lt;= 均不使 用索引（MyISAM和innodb表使用索引）；<br>   3、使用or分割的条件，如果or前的条件中的列有索引，后面的列中没有索引，那么涉及到的索引都不会使用。<br>   4、如果创建复合索引，如果条件中使用的列不是索引列的第一部分；（不是前缀索引）<br>   4、如果 like 是以％开始；<br>   5、对 where 后边条件为字符串的一定要加引号，字符串如果为数字 mysql 会自动转 为字符串，但是不使用索引。</p>
-</li>
-</ol>
+        <p>总结一下微信接口如何调用<br><a id="more"></a><br>关于Token的获取<br><strong>来自官方的说明：</strong>access_token是公众号的全局唯一票据，公众号调用各接口时都需使用access_token。开发者需要进行妥善保存。access_token的存储至少要保留512个字符空间。access_token的有效期目前为2个小时，需定时刷新，重复获取将导致上次获取的access_token失效。<br><a href="http://mp.weixin.qq.com/wiki/11/0e4b294685f817b95cbed85ba5e82b8f.html" target="_blank" rel="external">点击查看原文</a><br><strong>官方有关接口频率的限制：</strong>公众号调用接口并不是无限制的。为了防止公众号的程序错误而引发微信服务器负载异常，默认情况下，每个公众号调用接口都不能超过一定限制，当超过一定限制时，调用对应接口会收到的错误返回码。</p>
+<h5 id="怎么做？">怎么做？</h5><p>微信现在的Token是2个小时更新一次，而每天调用微信服务的次数是有限制的（虽然基本上是够用的），所以考虑把得到的Token值缓存在Memcache中，有效期为2个小时不到，这样能减少Token的生成次数。<br><strong>实例代码如下：</strong><br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAccessToken</span><span class="params">(<span class="variable">$host</span> = <span class="string">"127.0.0.1"</span>, <span class="variable">$port</span> = <span class="number">11211</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	<span class="comment">//获取access_token值的接口</span></span><br><span class="line">    <span class="variable">$url</span> = <span class="string">"https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&amp;appid="</span>.<span class="variable">$this</span>-&gt;appid.<span class="string">"&amp;secret="</span>.<span class="variable">$this</span>-&gt;appsecret;</span><br><span class="line">    <span class="variable">$memObj</span> = <span class="keyword">new</span> Memcache;</span><br><span class="line">    <span class="variable">$memObj</span>-&gt;connect(<span class="variable">$host</span>, <span class="variable">$port</span>);</span><br><span class="line">    <span class="variable">$access_token</span>   = <span class="variable">$memObj</span>-&gt;get(<span class="string">"access_token"</span>);<span class="comment">//获取token值</span></span><br><span class="line">    <span class="variable">$token_time</span>     = <span class="variable">$memObj</span>-&gt;get(<span class="string">"tokenTime"</span>);   <span class="comment">//获取token值的生命期</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$access_token</span> &amp;&amp; <span class="variable">$token_time</span>) <span class="comment">//token值和token值的生命期 都存在　都获取到</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="variable">$timeNow</span>    = time();</span><br><span class="line">        <span class="variable">$remainTime</span> = <span class="variable">$timeNow</span> - <span class="variable">$token_time</span>;              </span><br><span class="line">        <span class="keyword">if</span>(<span class="number">6900</span> &lt; <span class="variable">$remainTime</span>)   <span class="comment">//总的有效期是7200秒　如果离token的到期时间不足300秒　则更新token值</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$res</span> = <span class="variable">$this</span>-&gt;https_request(<span class="variable">$url</span>);<span class="comment">//GET 请求</span></span><br><span class="line">            <span class="variable">$res</span> = json_decode(<span class="variable">$res</span>, <span class="keyword">TRUE</span>);   <span class="comment">//解码json数据成数组</span></span><br><span class="line">            <span class="variable">$this</span>-&gt;access_token = <span class="variable">$res</span>[<span class="string">'access_token'</span>];</span><br><span class="line">            <span class="variable">$memObj</span>-&gt;set(<span class="string">"access_token"</span>, <span class="variable">$this</span>-&gt;access_token, <span class="number">0</span>, <span class="number">7200</span>);</span><br><span class="line">            <span class="variable">$memObj</span>-&gt;set(<span class="string">"tokenTime"</span> , time(), <span class="number">0</span>, <span class="number">0</span>);  <span class="comment">//tokenTime值永远有效　用来存储token值存入的时间</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="variable">$this</span>-&gt;access_token = <span class="variable">$access_token</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//code...</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -111,12 +101,12 @@
         </div>
         
           <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2014/12/15-redis-learn-note.html">redis-learn-note redis常用命令和基础知识学习笔记</a>
+            <em>上一篇: </em><a href="/2015/04/16-uml-astah.html">uml-astah</a>
           </div>
         
         
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2014/12/13-mysql-optimize.html">mysql-optimize MySQL优化</a>
+            <em>下一篇: </em><a href="/2015/04/15-read-book.html">read-book 读书</a>
           </div>
           
           <div class="clearfix"></div>
@@ -130,8 +120,8 @@
             
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2014/12/13-mysql-index.html">
-                  http://lv-code.com/2014/12/13-mysql-index.html
+                <a href="/2015/04/16-weixin-note.html">
+                  http://lv-code.com/2015/04/16-weixin-note.html
                 </a>
               </span>
             
@@ -140,13 +130,13 @@
         
   
   <div class="categories">
-    <a href="/categories/mysql/">mysql</a>
+    <a href="/categories/tech/">tech</a>
   </div>
 
         
   
   <div class="tags">
-    <a href="/tags/mysql/">mysql</a>
+    <a href="/tags/微信/">微信</a>
   </div>
 
         
