@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta http-equiv="content-language" content="zh-cn">
   
-  <title>归档：2014/2 | 爱编程</title>
+  <title>hexo-快速编辑新文章 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="一个互联网从业者的个人博客，喜爱编程，注重用户体验，在这里记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="hexo, hexo快速编辑新文章, hexo scripts,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="hexo-快速编辑新文章"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -60,24 +60,92 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title">2014/2</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2014-02-13T15:34:59.000Z"><a href="/2014/02/13-php-codeigniter-note.html">2014-02-13</a></time>
-            
-              <h1 class="title"><a href="/2014/02/13-php-codeigniter-note.html">php-codeigniter-note CI学习笔记</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-04-19T06:05:55.000Z"><a href="/2015/04/19-hexo-快速编辑新文章.html">2015-04-19</a></time>
+      
+      
+  
+    <h1 class="title">hexo-快速编辑新文章</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>因为hexo生成很慢所以顺便逛逛issue发现了原来可以生成的同时编辑新文章。<br><a id="more"></a><br>具体实现方法:</p>
+<p>在hexo的根目录下建立scripts文件夹<br>建立editor.js，将下列代码加入:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hexo 2.x</span></span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(path)</span></span>&#123;</span><br><span class="line">  spawn(<span class="string">'gvim'</span>, [path]);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Hexo 3</span></span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span><span class="params">(data)</span></span>&#123;</span><br><span class="line">  spawn(<span class="string">'vim'</span>, [data.path]);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>因为我使用的是vim，所以使用了vim。另外，依据hexo的版本，注销掉不用的部分。</p>
+<p>hexo会在Initial的时候运行scripts中的脚本，所以其他的方法也可以类似的添加。这段代码的<br>作用是监听new然后调用spawn</p>
+<p><strong>参考资料：</strong><a href="http://svtter.com/2015/03/16/hexo-%E7%BC%96%E8%BE%91%E6%96%B0%E6%96%87%E7%AB%A0/" title="点击查看" target="_blank" rel="external">来自网络</a></p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2015/04/19-vim-note.html">vim-note vim使用笔记</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2015/04/19-hexo-快速编辑新文章.html">
+                  http://lv-code.com/2015/04/19-hexo-快速编辑新文章.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/hexo/">hexo</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
