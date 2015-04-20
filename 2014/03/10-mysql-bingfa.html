@@ -1,0 +1,312 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-language" content="zh-cn">
+  
+  <title>mysql并发处理 | 爱编程</title>
+  <meta name="author" content="gangzi">
+  
+  <meta name="description" content="一个互联网从业者的个人博客，喜爱编程，注重用户体验，在这里记录工作和生活点滴！">
+  
+  
+  <meta name="keywords" content="mysql并发处理, mysq事务和锁,php,mysql,apache,linux,js,JavaScript,Web,前端">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="mysql并发处理"/>
+  <meta property="og:site_name" content="爱编程"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="爱编程" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="/js/jquery.min.js"></script>
+  
+
+</head>
+
+
+<body>
+  <!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0027_Simplified Chinese.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">爱编程</a></h1>
+  <h2><a href="/">记录工作和生活点滴</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">首页</a></li>
+    
+      <li><a href="/categories/essay/">随感</a></li>
+    
+      <li><a href="/categories/tech/">技术</a></li>
+    
+      <li><a href="/categories/php/">php</a></li>
+    
+      <li><a href="/categories/js/">js</a></li>
+    
+      <li><a href="/categories/life/">生活</a></li>
+    
+      <li><a href="/archives">归档</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2014-03-10T08:21:49.000Z"><a href="/2014/03/10-mysql-bingfa.html">2014-03-10</a></time>
+      
+      
+  
+    <h1 class="title">mysql并发处理</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>在mysql中，并发问题是经常遇见的，这里总结一些，还有待提升。<br>mysql并发场景举例：</p>
+<ol>
+<li>商城下单，一样的订单数据同时发送了两次，导致订单数据重复；</li>
+<li>餐饮管理系统，刷卡扣款，发起了两次请求，导致有两个同样的订单，扣款发生了两次，卡内押金被扣；<a id="more"></a>
+方案一：<br>简单的解决办法如下：<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">对于同样的订单写入两次的情况，需要考虑给每个用户的下单url请求加标识。</span><br><span class="line">对于扣款操作，可以用如下SQL：</span><br><span class="line"><span class="operator"><span class="keyword">update</span> <span class="keyword">from</span> t1 <span class="keyword">set</span> remain_money=remain_money-$<span class="keyword">cast</span> <span class="keyword">where</span> card_id=$id <span class="keyword">and</span> remain_money-$<span class="keyword">cast</span>&gt;<span class="number">20</span>;</span></span><br><span class="line"># 20是卡内必须有的押金</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>参考资料：</strong> <a href="http://hedengcheng.com/?p=771" title="MySQL加锁" target="_blank" rel="external">MySQL 加锁处理分析</a></p>
+<p>方案二：<br>使用mysql事务和锁</p>
+<p>共享锁【S锁】<br>又称读锁，若事务T对数据对象A加上S锁，则事务T可以读A但不能修改A，其他事务只能再对A加S锁，而不能加X锁，直到T释放A上的S锁。这保证了其他事务可以读A，但在T释放A上的S锁之前不能对A做任何修改。</p>
+<p>排他锁【X锁】<br>又称写锁。若事务T对数据对象A加上X锁，事务T可以读A也可以修改A，其他事务不能再对A加任何锁，直到T释放A上的锁。这保证了其他事务在T释放A上的锁之前不能再读取和修改A。</p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2014/05/25-algorithm-anagrams.html">algorithm-anagrams js关于“回文”的小算法</a>
+          </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2014/02/13-php-codeigniter-note.html">php-codeigniter-note CI学习笔记</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2014/03/10-mysql-bingfa.html">
+                  http://lv-code.com/2014/03/10-mysql-bingfa.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/mysql/">mysql</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="text" name="q" results="0" placeholder="搜一下">
+    <i class="icon-search"></i>
+    <input type="hidden" name="q" value="site:lv-code.com">
+  </form>
+</div>
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/NoSQL/">NoSQL</a><small>1</small></li>
+  
+    <li><a href="/tags/ORM/">ORM</a><small>1</small></li>
+  
+    <li><a href="/tags/android/">android</a><small>4</small></li>
+  
+    <li><a href="/tags/apache/">apache</a><small>1</small></li>
+  
+    <li><a href="/tags/codeigniter/">codeigniter</a><small>2</small></li>
+  
+    <li><a href="/tags/hexo/">hexo</a><small>6</small></li>
+  
+    <li><a href="/tags/js/">js</a><small>1</small></li>
+  
+    <li><a href="/tags/mysql/">mysql</a><small>4</small></li>
+  
+    <li><a href="/tags/php/">php</a><small>1</small></li>
+  
+    <li><a href="/tags/uml/">uml</a><small>1</small></li>
+  
+    <li><a href="/tags/vim/">vim</a><small>1</small></li>
+  
+    <li><a href="/tags/代码审查/">代码审查</a><small>1</small></li>
+  
+    <li><a href="/tags/健身/">健身</a><small>1</small></li>
+  
+    <li><a href="/tags/反射机制/">反射机制</a><small>1</small></li>
+  
+    <li><a href="/tags/微信/">微信</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构/">数据结构</a><small>1</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>3</small></li>
+  
+    <li><a href="/tags/读书/">读书</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2015/04/19-hexo-快速编辑新文章.html">hexo-快速编辑新文章</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/19-vim-note.html">vim-note vim使用笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/19-hexo-sshkey.html">hexo-sshkey 多个sshkey的问题</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/16-codereview-note.html">codereview-note 代码审查</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/16-uml-astah.html">uml-astah</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/16-weixin-note.html">weixin-note PHP调用微信接口</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/15-read-book.html">read-book 读书</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/15-php-ci-route.html">php-ci-route CI的URI路由使用</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/08-hexo-blog-coding-net.html">在coding.net的webIDE配置hexo</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/07-apache-cmd-usefull.html">apache-cmd-usefull apache常用命令总结</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/06-markdown-editor.html">markdown-editor markdown在线编辑器</a>
+      </li>
+    
+      <li>
+        <a href="/2015/04/03-php-orm-test.html">php-orm-test 类似ORM的demo</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  <div class="widget tag">
+  <h3 class="title">友情链接</h3>
+  <ul class="entry">
+      <li>
+        <a href="http://liangxifeng.com/" target="_blank">小梁</a>
+      </li>
+  </ul>
+</div>
+
+
+  <SCRIPT charset="utf-8" type="text/javascript" src="http://ws-cn.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=CN&ID=V20070822%2FCN%2Flvcodecom-23%2F8001%2F02cff670-9b8b-498a-a01c-4bf20954967f"> </SCRIPT> <NOSCRIPT><A HREF="http://ws-cn.amazon-adsystem.com/widgets/q?rt=tf_mfw&ServiceVersion=20070822&MarketPlace=CN&ID=V20070822%2FCN%2Flvcodecom-23%2F8001%2F02cff670-9b8b-498a-a01c-4bf20954967f&Operation=NoScript">Amazon.cn Widgets</A></NOSCRIPT>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <div id="go-pg-top"><i class="icon-arrow-up"></i></div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2015 gangzi
+  
+  
+<script type="text/javascript">
+var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254749423'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1254749423%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+
+</div>
+<div class="clearfix"></div>
+</footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" charset="utf-8" src="/js/page.js"></script>
+
+</body>
+
+</html>
