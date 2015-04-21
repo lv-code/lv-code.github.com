@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lv-code.com/2015/04/15-php-ci-route.html</loc>
+    <lastmod>2015-04-21T07:54:45.534Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lv-code.com/2014/03/10-mysql-bingfa.html</loc>
     <lastmod>2015-04-20T08:22:45.749Z</lastmod>
   </url>
@@ -49,11 +54,6 @@
   <url>
     <loc>http://lv-code.com/2015/04/15-read-book.html</loc>
     <lastmod>2015-04-15T14:29:21.246Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/15-php-ci-route.html</loc>
-    <lastmod>2015-04-15T08:25:37.009Z</lastmod>
   </url>
   
   <url>
