@@ -5,17 +5,17 @@
   <meta http-equiv="content-language" content="zh-cn">
   <meta name="baidu-site-verification" content="Gd5KTNrHMH" />
   
-  <title>js | 爱编程</title>
+  <title>js-event-bubble js时间冒泡和捕获 | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="一个互联网从业者的个人博客，喜爱编程，注重用户体验，在这里记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="js时间冒泡和捕获,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="js-event-bubble js时间冒泡和捕获"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -61,24 +61,89 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title tag">js</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2014-05-25T09:45:51.000Z"><a href="/2014/05/25-algorithm-anagrams.html">2014-05-25</a></time>
-            
-              <h1 class="title"><a href="/2014/05/25-algorithm-anagrams.html">algorithm-anagrams js关于“回文”的小算法</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-05-04T08:03:55.000Z"><a href="/2015/05/04-js-event-bubble.html">2015-05-04</a></time>
+      
+      
+  
+    <h1 class="title">js-event-bubble js时间冒泡和捕获</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="冒泡和捕获">冒泡和捕获</h3><p>冒泡和捕获其实是指两种js事件模型，这是在浏览器的发展过程中产生的，在“浏览器大战”的年代，Netscape主张元素1的事件首先发生，这种事件发生顺序被称为<em>捕获型</em>，微软则保持由内向外的优先权顺序，这种事件顺序被称为<em>冒泡型</em>。</p>
+<h3 id="W3C_模型">W3C 模型</h3><a id="more"></a>
+<p>W3c明智的在这场争斗中选择了一个择中的方案。任何发生在w3c事件模型中的事件，首是进入捕获阶段，直到达到目标元素，再进入冒泡阶段。</p>
+<h3 id="怎么做">怎么做</h3><p>为一个web开发者，你可以选择是在捕获阶段还是冒泡阶段绑定事件处理函数，这是通过addEventListener()方法实现的，如果这个函数的最后一个参数是true，则在捕获阶段绑定函数，反之false，在冒泡阶段绑定函数。</p>
+<p>假设你要做</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">element1.<span class="function"><span class="title">addEventListener</span><span class="params">(<span class="string">'click'</span>,doSomething2,true)</span></span></span><br><span class="line"></span><br><span class="line">element2.<span class="function"><span class="title">addEventListener</span><span class="params">(<span class="string">'click'</span>,doSomething,false)</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="参考文章：">参考文章：</h3><p><a href="http://www.quirksmode.org/js/events_order.html" target="_blank" rel="external">http://www.quirksmode.org/js/events_order.html</a><br><a href="http://www.cnblogs.com/hh54188/archive/2012/02/08/2343357.html" target="_blank" rel="external">http://www.cnblogs.com/hh54188/archive/2012/02/08/2343357.html</a></p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2015/04/19-hexo-快速编辑新文章.html">hexo-快速编辑新文章</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2015/05/04-js-event-bubble.html">
+                  http://lv-code.com/2015/05/04-js-event-bubble.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/js/">js</a>
+  </div>
+
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
