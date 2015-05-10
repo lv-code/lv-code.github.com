@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lv-code.com/2015/04/19-vim-note.html</loc>
+    <lastmod>2015-05-10T13:18:10.796Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://lv-code.com/2015/05/09-aptana-studio3-ide.html</loc>
     <lastmod>2015-05-10T06:49:35.079Z</lastmod>
   </url>
@@ -34,11 +39,6 @@
   <url>
     <loc>http://lv-code.com/2014/05/25-algorithm-anagrams.html</loc>
     <lastmod>2015-04-19T05:33:15.993Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/19-vim-note.html</loc>
-    <lastmod>2015-04-19T04:01:35.225Z</lastmod>
   </url>
   
   <url>
