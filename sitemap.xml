@@ -2,223 +2,228 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lv-code.com/2015/05/20-mac-docker-note.html</loc>
-    <lastmod>2015-05-20T07:40:45.446Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/06-markdown-editor.html</loc>
-    <lastmod>2015-05-14T06:31:49.401Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/05/09-aptana-studio3-ide.html</loc>
-    <lastmod>2015-05-14T05:55:28.802Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/19-vim-note.html</loc>
-    <lastmod>2015-05-10T13:21:15.210Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/05/04-js-event-bubble.html</loc>
-    <lastmod>2015-05-04T08:15:15.070Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/15-php-ci-route.html</loc>
-    <lastmod>2015-04-21T07:54:45.534Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/03/10-mysql-bingfa.html</loc>
-    <lastmod>2015-04-20T08:22:45.749Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/01/20-mysqlslap.html</loc>
-    <lastmod>2015-04-20T07:31:02.864Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/19-hexo-%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91%E6%96%B0%E6%96%87%E7%AB%A0.html</loc>
-    <lastmod>2015-04-19T06:32:13.814Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/05/25-algorithm-anagrams.html</loc>
-    <lastmod>2015-04-19T05:33:15.993Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/19-hexo-sshkey.html</loc>
-    <lastmod>2015-04-19T03:57:36.003Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/16-codereview-note.html</loc>
-    <lastmod>2015-04-16T11:33:08.600Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/16-uml-astah.html</loc>
-    <lastmod>2015-04-16T07:37:07.733Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/16-weixin-note.html</loc>
-    <lastmod>2015-04-16T07:36:06.790Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/15-read-book.html</loc>
-    <lastmod>2015-04-15T14:29:21.246Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/08-android-Dagger-note.html</loc>
-    <lastmod>2015-04-15T00:37:52.593Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/02/13-php-codeigniter-note.html</loc>
-    <lastmod>2015-04-13T15:39:54.182Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/01-php-getRelativePath.html</loc>
-    <lastmod>2015-04-13T14:59:15.275Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/05-android-AIDL-IPC.html</loc>
-    <lastmod>2015-04-13T14:46:38.218Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/11/21-android-life-cycle-test.html</loc>
-    <lastmod>2015-04-13T14:45:26.494Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/13-mysql-index.html</loc>
-    <lastmod>2015-04-13T14:40:53.558Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/13-mysql-optimize.html</loc>
-    <lastmod>2015-04-13T14:24:30.708Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/01/12-js-note.html</loc>
-    <lastmod>2015-04-12T09:53:45.940Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/01/28-%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.html</loc>
-    <lastmod>2015-04-10T08:42:09.044Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/08-essay-first.html</loc>
-    <lastmod>2015-04-10T08:38:17.524Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/02-jianfulun.html</loc>
-    <lastmod>2015-04-10T08:37:36.904Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/03-hexo-use-note.html</loc>
-    <lastmod>2015-04-10T08:31:08.810Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/01/01-office-food.html</loc>
-    <lastmod>2015-04-10T05:46:48.829Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/01-hello-world.html</loc>
-    <lastmod>2015-04-10T03:54:29.995Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/15-redis-learn-note.html</loc>
-    <lastmod>2015-04-10T03:24:19.998Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/08-hexo-blog-coding-net.html</loc>
-    <lastmod>2015-04-08T13:09:14.236Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/02-php-reflectionClass-test.html</loc>
-    <lastmod>2015-04-08T03:29:51.841Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/03-php-orm-test.html</loc>
-    <lastmod>2015-04-08T03:29:51.777Z</lastmod>
+    <loc>http://lv-code.com/2015/09/15-php-ci-upgrade2-to-3.html</loc>
+    <lastmod>2015-09-17T02:51:47.482Z</lastmod>
   </url>
   
   <url>
     <loc>http://lv-code.com/2015/01/04-java-base-data-type.html</loc>
-    <lastmod>2015-04-08T03:29:51.657Z</lastmod>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
   </url>
   
   <url>
-    <loc>http://lv-code.com/2015/04/03-hexo-theme-air-config.html</loc>
-    <lastmod>2015-04-08T03:29:51.569Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2015/04/07-apache-cmd-usefull.html</loc>
-    <lastmod>2015-04-08T03:29:51.529Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/22-android-XMPP-openfire-smack.html</loc>
-    <lastmod>2015-04-08T03:29:51.449Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/24-android-supporting-multiple-screens.html</loc>
-    <lastmod>2015-04-08T03:29:51.389Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/05-android-studio-install-and-use.html</loc>
-    <lastmod>2015-04-08T03:29:51.329Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/10-android-OS-framework.html</loc>
-    <lastmod>2015-04-08T03:29:51.285Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/02-android-open-project.html</loc>
-    <lastmod>2015-04-08T03:29:51.221Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://lv-code.com/2014/12/10-android-engineer-job-request.html</loc>
-    <lastmod>2015-04-08T03:29:51.113Z</lastmod>
+    <loc>http://lv-code.com/2014/12/08-android-Dagger-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
   </url>
   
   <url>
     <loc>http://lv-code.com/2014/12/29-android-debug-note.html</loc>
-    <lastmod>2015-04-08T03:29:51.065Z</lastmod>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/10-android-engineer-job-request.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/19-hexo-sshkey.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/02-php-reflectionClass-test.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/03-hexo-theme-air-config.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/06-markdown-editor.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/02/13-php-codeigniter-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/01/28-%E7%AE%97%E6%B3%95%E7%9A%84%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/13-mysql-optimize.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/01/01-office-food.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/01/20-mysqlslap.html</loc>
+    <lastmod>2015-07-06T15:13:50.466Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/08-essay-first.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/15-php-ci-route.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/03/10-mysql-bingfa.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/01-php-getRelativePath.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/05/20-mac-docker-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/01/12-js-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/05/04-js-event-bubble.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/02-jianfulun.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/16-weixin-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/19-hexo-%E5%BF%AB%E9%80%9F%E7%BC%96%E8%BE%91%E6%96%B0%E6%96%87%E7%AB%A0.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/03-hexo-use-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/03-php-orm-test.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/15-read-book.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/08-hexo-blog-coding-net.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/01-hello-world.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/13-mysql-index.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/16-codereview-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/05/09-aptana-studio3-ide.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/07-apache-cmd-usefull.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/24-android-supporting-multiple-screens.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/05-android-studio-install-and-use.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/02-android-open-project.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/11/21-android-life-cycle-test.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/15-redis-learn-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/16-uml-astah.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
   </url>
   
   <url>
     <loc>http://lv-code.com/2014/11/28-android-application-or-activity-context.html</loc>
-    <lastmod>2015-04-08T03:29:50.885Z</lastmod>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/22-android-XMPP-openfire-smack.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/10-android-OS-framework.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2015/04/19-vim-note.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/12/05-android-AIDL-IPC.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://lv-code.com/2014/05/25-algorithm-anagrams.html</loc>
+    <lastmod>2015-07-06T15:13:50.462Z</lastmod>
   </url>
   
 </urlset>

@@ -5,17 +5,17 @@
   <meta http-equiv="content-language" content="zh-cn">
   <meta name="baidu-site-verification" content="Gd5KTNrHMH" />
   
-  <title>java base data type | 爱编程</title>
+  <title>CI 2.x升级到3.x | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="一个互联网从业者的个人博客，喜爱编程，注重用户体验，在这里记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="CI框架, CI框架URI路由，CI 2.x升级到3.x,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="java base data type"/>
+  <meta property="og:title" content="CI 2.x升级到3.x"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -78,17 +78,32 @@
   <div class="post-content">
     <header>
       
-        <time datetime="2015-01-04T09:30:01.000Z"><a href="/2015/01/04-java-base-data-type.html">2015-01-04</a></time>
+        <time datetime="2015-09-15T07:01:10.000Z"><a href="/2015/09/15-php-ci-upgrade2-to-3.html">2015-09-15</a></time>
       
       
   
-    <h1 class="title">java base data type</h1>
+    <h1 class="title">CI 2.x升级到3.x</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <p>CI开发商品列表页时，可以使用CI框架自带的URI路由，这样可以避免在apache中做伪静态规则，程序如果迁移，就不用改apache配置。<br><a id="more"></a></p>
+<h3 id="如何用CI框架URI_路由：">如何用CI框架URI 路由：</h3><p>列表页：</p>
+<h4 id="TODO：">TODO：</h4><ul>
+<li>[ ] 筛选面板的a标签href如何产生。</li>
+<li>[ ] 把my_helper中的getListHref写成灵活的类。</li>
+</ul>
+<p><strong> 官方指南 </strong>：<br><a href="http://www.codeigniter.com/userguide3/installation/upgrade_300.html" target="_blank" rel="external">http://www.codeigniter.com/userguide3/installation/upgrade_300.html</a></p>
+<p><strong>解释</strong>：</p>
+<ul>
+<li>libraries, drivers, controllers and models 都必须首字母大写</li>
+</ul>
+<p><em>注：用户没有选择brand时，也要用0占位。</em></p>
+<p>路由规则定义在application/config/routes.php 文件中<br><strong>CI的URI路由规则</strong>：<br>$route[‘list-brand(:num)-category(:num)-attr(:num)-factor(:num)-search(:any)-page(:num)-sort(:num).html’]<br>= “list/index/$1/$2/$3/$4/$5/$6/$7”;<br>如何获得参数：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">(<span class="variable">$brand</span>, <span class="variable">$category</span>, <span class="variable">$attr</span>, <span class="variable">$factor</span>, <span class="variable">$search</span>, <span class="variable">$page</span>, <span class="variable">$sort</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">	var_dump(<span class="variable">$brand</span>, <span class="variable">$category</span>, <span class="variable">$attr</span>, <span class="variable">$factor</span>, <span class="variable">$search</span>, <span class="variable">$page</span>, <span class="variable">$sort</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//helper</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getHref</span><span class="params">(<span class="variable">$name</span>, <span class="variable">$id</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="variable">$url</span> = <span class="string">'list-brand0-1cate0-2cate0-3cate0-attr0-factor0-search0-page1-sort1.html'</span>;</span><br><span class="line">    <span class="variable">$defaultId</span> = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>( <span class="string">'page'</span>==<span class="variable">$name</span> || <span class="string">'sort'</span>==<span class="variable">$name</span> ) <span class="variable">$defaultId</span> = <span class="number">1</span>;</span><br><span class="line">    <span class="variable">$urlNew</span> = str_replace(<span class="variable">$name</span>.<span class="variable">$id</span>, <span class="variable">$name</span>.<span class="variable">$defaultId</span>, <span class="variable">$url</span>);</span><br><span class="line">    <span class="keyword">return</span> base_url(<span class="variable">$urlNew</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>PS:</strong><br>    <a href="https://github.com/lv-code/ci.loc/blob/master/application/controllers/goods_list.php" target="_blank" rel="external">测试代码</a></p>
+
       
     </div>
     
@@ -99,13 +114,9 @@
         <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
         </div>
         
-          <div class="alignleft post-nav">
-            <em>上一篇: </em><a href="/2015/01/12-js-note.html">js-note js开发笔记</a>
-          </div>
-        
         
           <div class="alignright post-nav">
-            <em>下一篇: </em><a href="/2015/01/01-office-food.html">office-food 适合在办公室的食物</a>
+            <em>下一篇: </em><a href="/2015/05/20-mac-docker-note.html">mac-docker-note mac使用docker搭建php nginx</a>
           </div>
           
           <div class="clearfix"></div>
@@ -119,15 +130,25 @@
             
               <span class="from-link">
                 <em>本文链接地址:</em>
-                <a href="/2015/01/04-java-base-data-type.html">
-                  http://lv-code.com/2015/01/04-java-base-data-type.html
+                <a href="/2015/09/15-php-ci-upgrade2-to-3.html">
+                  http://lv-code.com/2015/09/15-php-ci-upgrade2-to-3.html
                 </a>
               </span>
             
           </div>
         
         
+  
+  <div class="categories">
+    <a href="/categories/codeigniter/">codeigniter</a>
+  </div>
+
         
+  
+  <div class="tags">
+    <a href="/tags/codeigniter/">codeigniter</a>, <a href="/tags/php/">php</a>
+  </div>
+
         
       
       <div class="clearfix"></div>
