@@ -5,17 +5,17 @@
   <meta http-equiv="content-language" content="zh-cn">
   <meta name="baidu-site-verification" content="Gd5KTNrHMH" />
   
-  <title>essay | 爱编程</title>
+  <title>mac-docker-note mac使用docker搭建php nginx | 爱编程</title>
   <meta name="author" content="gangzi">
   
   <meta name="description" content="一个互联网从业者的个人博客，喜爱编程，注重用户体验，在这里记录工作和生活点滴！">
   
   
-  <meta name="keywords" content="php,mysql,apache,linux,js,JavaScript,Web,前端">
+  <meta name="keywords" content="docker, mac使用docker搭建php nginx, mac搭建php环境,php,mysql,apache,linux,js,JavaScript,Web,前端">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  
+  <meta property="og:title" content="mac-docker-note mac使用docker搭建php nginx"/>
   <meta property="og:site_name" content="爱编程"/>
 
   
@@ -61,24 +61,105 @@
 </nav>
 <div class="clearfix"></div></header>
   <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-<h2 class="archive-title category">essay</h2>
-
-
-  <div class="archive">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-      <article class="post">
-        <div class="post-content">
-          <header>
-            <time datetime="2014-12-08T13:12:20.000Z"><a href="/2014/12/08-essay-first.html">2014-12-08</a></time>
-            
-              <h1 class="title"><a href="/2014/12/08-essay-first.html">essay-first</a></h1>
-            
-          </header>
-        </div>
-      </article>
+      <img src="">
     
   </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+        <time datetime="2015-05-20T07:35:36.000Z"><a href="/2015/05/20-mac-vagrant-note.html">2015-05-20</a></time>
+      
+      
+  
+    <h1 class="title">mac-docker-note mac使用docker搭建php nginx</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Docker 是个伟大的项目，它彻底释放了虚拟化的威力，极大降低了云计算资源供应的成本，同时让应用的分发、测试、部署和分发都变得前所未有的高效和轻松！<br><a id="more"></a><br>下载安装boot2docker<br><a href="https://github.com/boot2docker/osx-installer/releases" target="_blank" rel="external">https://github.com/boot2docker/osx-installer/releases</a><br>安装参考官方文档：<br><a href="http://docs.docker.com/installation/mac/" target="_blank" rel="external">http://docs.docker.com/installation/mac/</a><br>在Launchpad中启动boot2docker<br>检查docker是否安装成功，运行hello－world容器：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="command">run</span> hello-world</span><br></pre></td></tr></table></figure></p>
+<p>Start an NGINX container on the DOCKER_HOST.<br><em>在docker的宿主机上启动一个nginx容器</em><br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span> -<span class="keyword">d</span> -p 80:80 -P --name web nginx -v <span class="comment">//nginx.conf:/etc/nginx/nginx.conf:ro</span></span><br></pre></td></tr></table></figure></p>
+<p>The -d flag keeps the container running in the background after the docker run command completes.<br><em>d：代表在后台运行</em></p>
+<h4 id="容器的操作">容器的操作</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker start web <span class="comment">#启动容器名为web的容器</span></span><br><span class="line"><span class="variable">$ </span>docker exec -it web bash <span class="comment">#进入容器</span></span><br><span class="line"><span class="variable">$ </span>docker stop web ＃停止容器</span><br><span class="line"><span class="variable">$ </span>docker rm web ＃删除容器</span><br></pre></td></tr></table></figure>
+<h4 id="保存容器至镜像">保存容器至镜像</h4><p>docker commit -m “new nginx” -a “gang” web gang/nginx:v1<br>docker commit -m “my new php-fpm images” -a “gang” php-fpm-ct gang/php-fpm:v1</p>
+<p>docker run —name nginx-ct -d -p 80:80 -v /Users/gang/work/:/usr/share/nginx/html gang/nginx:v1</p>
+<p>docker run —name php-fpm-ct -d -p 9000:9000 -v /Users/work:/var/www/html gang/php-fpm:v1</p>
+<h4 id="nginx配置文件修改">nginx配置文件修改</h4><p>location ~ .php$ {<br>    root           /usr/share/nginx/html;<br>    fastcgi_pass   192.168.59.103:9000;<br>    fastcgi_index  index.php;<br>    fastcgi_param  SCRIPT_FILENAME  /var/www/html/$fastcgi_script_name;<br>    include        fastcgi_params;<br>}</p>
+<h4 id="镜像的操作">镜像的操作</h4><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>docker images</span><br><span class="line"><span class="variable">$ </span>docker rmi ad673a791d21 <span class="comment"># 删除images</span></span><br></pre></td></tr></table></figure>
+<h4 id="显示docker的ip">显示docker的ip</h4><p>boot2docker ip</p>
+<h4 id="默认的nginx容器没有vim">默认的nginx容器没有vim</h4><p>这是为了让容器保持最小化<br>cat /etc/nginx/conf.d/root   /usr/share/nginx/html</p>
+<h4 id="安装php－fpm">安装php－fpm</h4><p>docker run —name php-fpm-ct -d -p 9000:9000 -v /local/dir:/var/www/html php:5.6-fpm</p>
+<h4 id="docker官方提供的image">docker官方提供的image</h4><p><a href="https://registry.hub.docker.com/repos/library/" target="_blank" rel="external">https://registry.hub.docker.com/repos/library/</a></p>
+<h4 id="其他参考资料">其他参考资料</h4><p><a href="http://dockerpool.com/static/books/docker_practice/appendix_repo/nginx.html" target="_blank" rel="external">http://dockerpool.com/static/books/docker_practice/appendix_repo/nginx.html</a></p>
+
+      
+    </div>
+    
+    <footer>
+    
+      
+        <div style="padding:16px 0 16 0;">
+        <iframe src="http://rcm-cn.amazon-adsystem.com/e/cm?t=lvcodecom-23&o=28&p=13&l=ez&f=ifr&f=ifr" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" border="0" frameborder="0" style="border:none;"></iframe>
+        </div>
+        
+          <div class="alignleft post-nav">
+            <em>上一篇: </em><a href="/2015/05/20-mac-docker-note.html">mac-docker-note mac使用docker搭建php nginx</a>
+          </div>
+        
+        
+          <div class="alignright post-nav">
+            <em>下一篇: </em><a href="/2015/05/09-aptana-studio3-ide.html">aptana-studio3-ide aptana使用笔记</a>
+          </div>
+          
+          <div class="clearfix"></div>
+        
+
+        
+          <div class="copyright">
+            
+              <span class="claim">版权声明：自由转载-非商用-无演绎-保持署名 @ Creative Commons BY-NC-ND 3.0</span>
+            
+            
+              <span class="from-link">
+                <em>本文链接地址:</em>
+                <a href="/2015/05/20-mac-vagrant-note.html">
+                  http://lv-code.com/2015/05/20-mac-vagrant-note.html
+                </a>
+              </span>
+            
+          </div>
+        
+        
+  
+  <div class="categories">
+    <a href="/categories/tech/">tech</a>
+  </div>
+
+        
+  
+  <div class="tags">
+    <a href="/tags/docker/">docker</a>, <a href="/tags/mac/">mac</a>
+  </div>
+
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
 </div></div>
     <aside id="sidebar" class="alignright">
   <div class="search">
