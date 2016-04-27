@@ -79,6 +79,55 @@
   <div class="post-content">
     <header>
       
+        <time datetime="2014-12-22T08:27:46.000Z"><a href="/2014/12/22-android-XMPP-openfire-smack.html">2014-12-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2014/12/22-android-XMPP-openfire-smack.html">android XMPP openfire smack笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>openfire对XMPP的实现还是比较完整的，做1万以内的并发IM是比较好的。</p>
+      
+    </div>
+    
+    <footer>
+    
+      
+        
+          <div class="alignleft">
+            <a href="/2014/12/22-android-XMPP-openfire-smack.html#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
         <time datetime="2014-12-14T16:00:00.000Z"><a href="/2014/12/15-redis-learn-note.html">2014-12-15</a></time>
       
       
@@ -503,66 +552,6 @@
 
 
 
-  <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
-</div>
-  
-  <div class="post-content">
-    <header>
-      
-        <time datetime="2014-12-03T01:34:01.000Z"><a href="/2014/12/03-hexo-use-note.html">2014-12-03</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2014/12/03-hexo-use-note.html">hexo-use-note</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h1 id="执行sudo_hexo_d_报错">执行sudo hexo d 报错</h1><p>Permission denied (publickey).<br>fatal: The remote end hung up unexpectedly</p>
-<p>早上刚到公司，解决了这个问题<br>原因是sudo会调用root用户的ssh key</p>
-<p>sudo chown -R user.user hexo<br>hexo d  # 执行成功！</p>
-<h3 id="添加站点地图hexo-generator-sitemap">添加站点地图hexo-generator-sitemap</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-<p>You can configure this plugin in _config.yml.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">    path: sitemap.xml</span><br></pre></td></tr></table></figure>
-<p>永久链接非常的长，这样对SEO的不是非常的友好，对于一篇文章的地址来说最好不能深过三级。 关于hexo的永久链接配置地址，在根目录下的_config.yml文件中的permalink:部分。</p>
-<p>我们可以看到默认的值为permalink: :year/:month/:day/:title/</p>
-<p>建议一<br>由于搜索引擎的蜘蛛一般喜欢静态化的页面，若只是简单的优化，我们只要改成permalink: :year/:month/:day/:title.html就可以了。</p>
-<p>这样的做法的优点是:</p>
-<p>修改简单<br>在目录里面易于管理<br>缺点:</p>
-<p>目录过深对SEO不太友好<br>建议二<br>将默认值改为post/:title.html或者:title.html</p>
-<p>优点:</p>
-<p>地址简单优美<br>目录浅，对SEO友好<br>缺点:</p>
-<p>文章不按时间归类(或者对于一些人不需要?)<br>文章过多的时候会在一个文件夹内生成很多文件<br>总结<br>我个人比较建议post/:title.html这种方法 静态化和永久链接必须在博客搭建起来一开始就想好，不然地址的改变将会引起评论的ID的改变，中途文章一多需要修改就非常麻烦，甚至没法修改。</p>
-
-      
-    </div>
-    
-    <footer>
-    
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <ul class="page-direction" id="page-direction">
     <li><a class="page-prev icon-chevron-sign-left" href="javascript:;" title="上一页"></a></li>
@@ -630,6 +619,8 @@
   
     <li><a href="/tags/反射机制/">反射机制</a><small>1</small></li>
   
+    <li><a href="/tags/开源项目/">开源项目</a><small>1</small></li>
+  
     <li><a href="/tags/微信/">微信</a><small>1</small></li>
   
     <li><a href="/tags/数据结构/">数据结构</a><small>1</small></li>
@@ -646,6 +637,10 @@
 <div class="widget tag">
   <h3 class="title">最新文章</h3>
   <ul class="entry">
+    
+      <li>
+        <a href="/2016/04/27-opensource.html">opensource 开源项目整理</a>
+      </li>
     
       <li>
         <a href="/2015/09/25-linux-cmd-note.html">linux-cmd-note</a>
@@ -689,10 +684,6 @@
     
       <li>
         <a href="/2015/04/16-uml-astah.html">uml-astah</a>
-      </li>
-    
-      <li>
-        <a href="/2015/04/16-weixin-note.html">weixin-note PHP调用微信接口</a>
       </li>
     
   </ul>
